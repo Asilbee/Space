@@ -1,0 +1,204 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Space - Engenering</title>
+</head>
+<body style="background-color: #1F5BA1">
+<nav class="navbar navbar-expand-lg navbar">
+    <img style="width: 50px; top: 34px;left: 44px" src="{% static 'img/icon.png' %}" alt="">
+    <a style="color: white;font-style: normal" class="nav-link">Space Engineering</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul style="margin-left: 62rem" class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a href="#home" class="nav-link" style="color: white">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a href="#services" class="nav-link" style="color: white">Services</a>
+            </li>
+            <li class="nav-item active">
+                <a href="#team" class="nav-link" style="color: white">Team</a>
+            </li>
+            <li class="nav-item active">
+                <a href="#about" class="nav-link" style="color: white">About</a>
+            </li>
+            <li class="nav-item active">
+                <a href="{% url 'ru' %}" class="nav-link" style="color: white;background-color: #3B62EF">RU</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{%for i in icon %}
+<img  style="width: 94.9rem;line-height: 89.94px" src="{{i.img.url}}" alt="">
+{%endfor%}
+<div id="about"
+     style="border: 1px solid white;width: 1143px;height: 331px;margin-left: 188px;margin-top: 98px;background-color: white">
+    <div style="margin-top: 3rem">
+        <p style="font-size: 40px;text-align: center;letter-spacing: 0.105em;">Space Engeneering</p>
+        <p style="font-size: 35px;text-align: center;letter-spacing: 0.105em;"> Biz siz uchun eng yangi texnologiyalar
+            orqali xizmat ko`rsatamiz. Biz siz va sizning biznesingiz xaqida qayg`uramiz.</p>
+    </div>
+</div>
+<div>
+
+    <p id="services" style="font-size: 40px;text-align: center;letter-spacing: 0.105em;color: white;margin-top: 6rem">
+        Bizning Xizmatlar</p>
+    {% for i in services %}
+    {% if i.left == True %}
+    <div class="col-5 mt-5">
+        <div style="border: 5px solid white;width: 1485px;height: 820px;">
+            <img style="margin-top: 7.5rem;margin-left:47rem;width: 635px;height: 581px" src="{{i.img.url}}" alt="">
+            <p style="
+font-weight: 400;
+font-size: 50px;
+line-height: 24.52%;
+/* or 12px */
+margin-top: -22rem;
+margin-left: -50rem;
+color: white;
+text-align: center;
+letter-spacing: 0.105em;">{{i.name}}</p>
+            <p style="text-align: center;
+            margin-left: 31px;
+            margin-top: 3rem;
+            font-size: 35px;
+            letter-spacing: 0.105em;
+position: absolute;
+color: #FFFFFF;">{{i.info}}</p>
+        </div>
+    </div>
+    {% elif i.left == False %}
+    <div class="col-5 mt-5">
+        <div style="border: 5px solid white;width: 1485px;height: 820px;">
+
+            <img style="margin-top: 7.5rem;margin-left: 3rem;width: 635px;height: 581px" src="{{i.img.url}}" alt="">
+            <p style="
+font-weight: 400;
+font-size: 50px;
+line-height: 24.52%;
+/* or 12px */
+margin-top: -22rem;
+margin-left: 50rem;
+color: white;
+text-align: center;
+letter-spacing: 0.105em;">{{i.name}}</p>
+            <p style="position: absolute;
+           width: 626px;
+           font-size: 35px;
+height: 62px;
+left: 840px;
+top: 27rem;
+text-align: center;
+letter-spacing: 0.105em;
+color: #FFFFFF;">{{i.info}}</p>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <p id="team" style="font-size: 40px;text-align: center;letter-spacing: 0.105em;color: white;margin-top: 8rem">
+        Bizning
+        Jamoa</p>
+
+
+    <div style="border: 5px solid white;width: 1485px;height: 650px;margin-left: 15px">
+        <div class="mt-5 col-12 row" style="margin-top: 100rem">
+            <div class="" style="margin-left: 6rem">
+                {% for i in team %}
+                <img style="border-radius: 90rem;width: 239px;height: 254px;margin-left: 3rem;margin-top: 1rem"
+                     src="{{i.img.url}}">
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-4 footer-cols">
+                    <h2>
+                        Space Eniginering Group
+                    </h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis consequatur doloremque dolorum, error illum nemo nobis optio recusandae voluptatum! A fugiat incidunt minima, non officiis provident repudiandae sit veniam.
+                    </p>
+                </div>
+                <div class="col-1 footer-cols">
+                    <a href="" class="footer-href">Home</a>
+                    <a href="" class="footer-href">Services</a>
+                    <a href="" class="footer-href">Team</a>
+                    <a href="" class="footer-href">About</a>
+                    <a href="" class="footer-href">Language</a>
+                </div>
+                <div class="col-2 footer-cols" style="transform: translate(120px , 50px)">
+                    <h2>Contacts</h2>
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" class="footer-image" alt="">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" class="footer-image" alt="">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968804.png" class="footer-image" alt="">
+                </div>
+                <div class="col-5 footer-cols" style="transform: translate(150px , 50px)">
+                    <form method="post">
+                    {% csrf_token %}
+                    <input type="email" placeholder="Emailingizni kiriting" required style="width: 317px; height: 40px;border: none;outline: none;" {{form.email}}>
+                    <textarea placeholder="Fikringizni Kiriting"  cols="40"  style="transform: translateY(10px)"  rows="5" {{form.message}}
+
+                    </textarea>
+                    <button type="submit" id="btn-sub">Yuborish</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <style>
+        #btn-sub{
+            transform: translate(0px , 15px);
+            height: 40px;
+            width: 320px;
+            border: none;
+            outline: none;
+            background-color: #1F5BA1;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .footer-cols{
+            transform: translateY(50px);
+        }
+        footer{
+            transform: translateY(20px);
+            background-color: #000;
+            width: 100%;
+            height: 400px;
+        }
+        .footer-href{
+            font-size: 18px;
+            padding: 10px;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+        .footer-href:hover{
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+        .footer-image{
+            transform: translateY(20px);
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+        }
+    </style>
+</body>
+</html>
